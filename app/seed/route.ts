@@ -36,7 +36,7 @@ export async function GET() {
 
         return sql`
           INSERT INTO users (id, name, email, password)
-          VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
+          VALUES (${user.id}, ${user.name}, ${user.email}, ${hash})
           ON CONFLICT (id) DO NOTHING;
         `;
       })
